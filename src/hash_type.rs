@@ -105,7 +105,7 @@ mod tests {
     use crate::{scalar_from_u64s, Strength};
     use blstrs::Scalar as Fr;
     use generic_array::typenum::{U15, U8};
-    use std::collections::HashSet;
+    use alloc::collections::HashSet;
 
     #[test]
     fn test_domain_tags() {

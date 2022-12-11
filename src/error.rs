@@ -1,5 +1,5 @@
 use std::{error, fmt};
-
+ use alloc::string::String;
 #[derive(Debug, Clone)]
 #[cfg(any(feature = "cuda", feature = "opencl"))]
 pub enum ClError {

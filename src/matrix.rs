@@ -2,7 +2,8 @@
 #![allow(clippy::ptr_arg)]
 
 use ff::PrimeField;
-
+use alloc::vec::Vec;
+use alloc::vec;
 /// Matrix functions here are, at least for now, quick and dirty — intended only to support precomputation of poseidon optimization.
 
 /// Matrix represented as a Vec of rows, so that m[i][j] represents the jth column of the ith row in Matrix, m.

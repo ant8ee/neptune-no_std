@@ -1,5 +1,5 @@
 use ff::PrimeField;
-
+use alloc::vec::Vec;
 /// From the paper ():
 /// The round constants are generated using the Grain LFSR [23] in a self-shrinking
 /// mode:

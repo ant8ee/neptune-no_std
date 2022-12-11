@@ -1,5 +1,5 @@
 use std::fmt::{self, Debug};
-use std::marker::PhantomData;
+use core::marker::PhantomData;
 use std::sync::{Arc, Mutex};
 
 use crate::error::{ClError, Error};

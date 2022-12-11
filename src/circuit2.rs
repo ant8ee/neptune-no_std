@@ -1,6 +1,7 @@
 /// The `circuit2` module implements the optimal Poseidon hash circuit.
-use std::ops::{AddAssign, MulAssign};
-
+use core::ops::{AddAssign, MulAssign};
+use std::dbg;
+use alloc::format;
 use crate::hash_type::HashType;
 use crate::matrix::Matrix;
 use crate::mds::SparseMatrix;
@@ -9,8 +10,9 @@ use bellperson::gadgets::boolean::Boolean;
 use bellperson::gadgets::num::{self, AllocatedNum};
 use bellperson::{ConstraintSystem, LinearCombination, SynthesisError};
 use ff::{Field, PrimeField};
-use std::marker::PhantomData;
-
+use core::marker::PhantomData;
+use alloc::vec::Vec;
+use crate::std::string::ToString;
 /// Similar to `num::Num`, we use `Elt` to accumulate both values and linear combinations, then eventually
 /// extract into a `num::AllocatedNum`, enforcing that the linear combination corresponds to the result.
 #[derive(Clone)]

@@ -1,6 +1,10 @@
 /// Implement the legacy Poseidon hash circuit, retained for backwards compatibility with extant trusted setups.
-use std::ops::{AddAssign, MulAssign};
-
+use core::ops::{AddAssign, MulAssign};
+use alloc::format;
+use alloc::vec::Vec;
+ use alloc::string::String;
+use crate::std::string::ToString;
+use std::dbg;
 use crate::circuit2::poseidon_hash_allocated;
 use crate::hash_type::HashType;
 use crate::matrix::Matrix;
@@ -11,8 +15,8 @@ use bellperson::gadgets::num;
 use bellperson::gadgets::num::AllocatedNum;
 use bellperson::{ConstraintSystem, LinearCombination, SynthesisError};
 use ff::{Field, PrimeField};
-use std::marker::PhantomData;
-
+use core::marker::PhantomData;
+  
 #[derive(Clone, Copy, Debug)]
 pub enum CircuitType {
     Legacy,

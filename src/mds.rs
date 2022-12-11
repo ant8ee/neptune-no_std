@@ -2,7 +2,8 @@
 #![allow(clippy::ptr_arg)]
 
 use ff::PrimeField;
-
+use alloc::vec;
+use alloc::vec::Vec;
 use crate::matrix;
 use crate::matrix::{
     apply_matrix, invert, is_identity, is_invertible, is_square, mat_mul, minor, transpose, Matrix,

@@ -3,8 +3,8 @@ use crate::poseidon::{Arity, Poseidon, PoseidonConstants};
 use crate::sponge::api::{Hasher, IOPattern, InnerSpongeAPI, SpongeOp};
 use crate::{Error, Strength};
 use ff::PrimeField;
-use std::collections::VecDeque;
-
+use alloc::collections::VecDeque;
+use alloc::vec::Vec;
 // General information on sponge construction: https://keccak.team/files/CSF-0.1.pdf
 
 /*
@@ -55,7 +55,7 @@ pub struct Sponge<'a, F: PrimeField, A: Arity<F>> {
     mode: Mode,
     direction: Direction,
     squeeze_pos: usize,
-    queue: VecDeque<F>,
+    queue:  VecDeque<F>,
     pattern: IOPattern,
     io_count: usize,
 }
@@ -505,7 +505,7 @@ mod tests {
     use generic_array::typenum;
     use rand::{Rng, SeedableRng};
     use rand_xorshift::XorShiftRng;
-    use std::collections::HashSet;
+    use alloc::collections::HashSet;
 
     #[test]
     fn test_simplex() {

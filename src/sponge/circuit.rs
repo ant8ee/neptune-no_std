@@ -12,9 +12,11 @@ use bellperson::gadgets::boolean::Boolean;
 use bellperson::gadgets::num::{self, AllocatedNum};
 use bellperson::{ConstraintSystem, LinearCombination, Namespace, SynthesisError};
 use ff::{Field, PrimeField};
-use std::collections::VecDeque;
-use std::marker::PhantomData;
-
+use alloc::collections::VecDeque;
+use core::marker::PhantomData;
+use alloc::vec::Vec;
+use alloc::vec;
+use alloc::format;
 pub struct SpongeCircuit<'a, F, A, C>
 where
     F: PrimeField,
@@ -241,7 +243,7 @@ mod tests {
     use generic_array::typenum;
     use rand::{Rng, SeedableRng};
     use rand_xorshift::XorShiftRng;
-    use std::collections::HashSet;
+    use alloc::collections::HashSet;
 
     #[test]
     fn test_simplex_circuit() {

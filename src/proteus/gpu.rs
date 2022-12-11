@@ -7,8 +7,8 @@ use ec_gpu_gen::rust_gpu_tools::{program_closures, Device, Program};
 use ff::{Field, PrimeField};
 use generic_array::{typenum, ArrayLength, GenericArray};
 use log::info;
-use std::collections::HashMap;
-use std::marker::PhantomData;
+use alloc::collections::HashMap;
+use core::marker::PhantomData;
 use typenum::{U11, U2, U8};
 
 #[cfg(feature = "bls")]

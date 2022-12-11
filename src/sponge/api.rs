@@ -4,7 +4,7 @@
 /// `Neptune` provides implementations of `InnerSpongeAPI` for both `sponge::Sponge` and `sponge_circuit::SpongeCircuit`.
 use crate::poseidon::{Arity, Poseidon, PoseidonConstants};
 use ff::PrimeField;
-
+use alloc::vec::Vec;
 #[derive(Debug)]
 pub enum Error {
     ParameterUsageMismatch,

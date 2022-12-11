@@ -9,7 +9,7 @@ use generic_array::typenum;
 use neptune::circuit::{poseidon_hash_circuit, CircuitType};
 use neptune::*;
 use rand::thread_rng;
-use std::marker::PhantomData;
+use core::marker::PhantomData;
 
 struct BenchCircuit<'a, A: Arity<Fr>> {
     n: usize,

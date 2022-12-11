@@ -1,8 +1,11 @@
+#![no_std]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #[macro_use]
 extern crate lazy_static;
-
+extern crate alloc;
+extern crate std;
+use alloc::vec::Vec;
 pub use crate::poseidon::{Arity, Poseidon};
 use crate::round_constants::generate_constants;
 use crate::round_numbers::{round_numbers_base, round_numbers_strengthened};
@@ -11,7 +14,7 @@ use blstrs::Scalar as Fr;
 pub use error::Error;
 use ff::PrimeField;
 use generic_array::GenericArray;
-use std::fmt;
+use core::fmt;
 use trait_set::trait_set;
 
 #[cfg(all(
@@ -175,7 +178,7 @@ fn round_constants<F: PrimeField>(arity: usize, strength: &Strength) -> Vec<F> {
 
     let fr_num_bits = F::NUM_BITS;
     let field_size = {
-        assert!(fr_num_bits <= std::u16::MAX as u32);
+        assert!(fr_num_bits <= core::u16::MAX as u32);
         // It's safe to convert to u16 for compatibility with other types.
         fr_num_bits as u16
     };
